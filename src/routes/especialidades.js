@@ -57,9 +57,11 @@ const ESPECIALIDADES = [
   { idEspecialidad: 34, descripcion: "UROLOGIA", teleConsulta: false, codigo: "UROLO" },
 ];
 
-router.post("/ListarEspecialidadesCm", (req, res) => {
-  const pagina = parseInt(req.body.Pagina) || 1;
-  const cantidadRegistros = parseInt(req.body.CantidadRegistros) || ESPECIALIDADES.length;
+router.get("/ListarEspecialidadesCm", (req, res) => {
+  const pagina = parseInt(req.query.Pagina) || 1;
+  const cantidadRegistros = parseInt(req.query.CantidadRegistros) || ESPECIALIDADES.length;
+  const edad = req.headers["edad"];
+  const genero = req.headers["genero"];
   res.json(paginar(ESPECIALIDADES, pagina, cantidadRegistros));
 });
 
