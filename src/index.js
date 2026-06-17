@@ -8,6 +8,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.json({ mensaje: "Bienvenido a MEDIGLOBAL TEST API" });
+});
+
 app.use("/", sucursalesRouter);
 app.use("/", especialidadesRouter);
 
