@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require("uuid");
+const { randomUUID } = require("crypto");
 
 function paginar(datos, pagina, cantidadRegistros) {
   const totalRegistros = datos.length;
@@ -16,7 +16,7 @@ function paginar(datos, pagina, cantidadRegistros) {
     procesoExitoso: true,
     mensaje: "OK",
     codigoMensaje: "OK-000",
-    requestId: uuidv4().replace(/-/g, ""),
+    requestId: randomUUID().replace(/-/g, ""),
   };
 }
 
