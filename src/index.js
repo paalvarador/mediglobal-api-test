@@ -11,6 +11,10 @@ app.use(express.json());
 app.use("/", sucursalesRouter);
 app.use("/", especialidadesRouter);
 
-app.listen(PORT, () => {
-  console.log(`Mediglobal Test Service corriendo en http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Mediglobal Test Service corriendo en http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
